@@ -1,7 +1,6 @@
 variable "region" {
   description = "AWS region where the route table association will be managed"
   type        = string
-  default     = "us-east-1"
 }
 
 variable "route_table_id" {

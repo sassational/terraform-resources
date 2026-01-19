@@ -1,7 +1,6 @@
 variable "region" {
   description = "AWS region where the route table will be created"
   type        = string
-  default     = "us-east-1"
 }
 
 variable "vpc_id" {
