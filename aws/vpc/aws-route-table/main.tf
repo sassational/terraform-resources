@@ -1,4 +1,5 @@
 resource "aws_route_table" "this" {
+  
   vpc_id = var.vpc_id
 
   dynamic "route" {
@@ -30,4 +31,5 @@ resource "aws_route_table" "this" {
       Name = var.route_table_name
     }
   )
+
 }
