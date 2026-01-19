@@ -14,7 +14,7 @@ variable "spot_type" {
   description = "Type of spot request. Valid values: 'one-time' or 'persistent'"
   type        = string
   default     = "persistent"
-  
+
   validation {
     condition     = contains(["one-time", "persistent"], var.spot_type)
     error_message = "spot_type must be either 'one-time' or 'persistent'."
@@ -31,7 +31,7 @@ variable "instance_interruption_behavior" {
   description = "Indicates Spot instance behavior when it is interrupted. Valid values: 'terminate', 'stop', or 'hibernate'"
   type        = string
   default     = "terminate"
-  
+
   validation {
     condition     = contains(["terminate", "stop", "hibernate"], var.instance_interruption_behavior)
     error_message = "instance_interruption_behavior must be 'terminate', 'stop', or 'hibernate'."

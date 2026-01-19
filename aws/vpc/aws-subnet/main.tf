@@ -1,5 +1,5 @@
 resource "aws_subnet" "this" {
-  
+
   vpc_id = var.vpc_id
 
   region                                         = var.region

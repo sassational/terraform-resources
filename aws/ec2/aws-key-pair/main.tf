@@ -13,4 +13,5 @@ resource "aws_key_pair" "this" {
       error_message = "Conflict detected: You cannot define both 'key_name' and 'key_name_prefix' at the same time for the AWS Key Pair. Please set one to null."
     }
   }
+
 }

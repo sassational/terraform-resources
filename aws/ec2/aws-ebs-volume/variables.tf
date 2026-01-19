@@ -19,7 +19,7 @@ variable "type" {
   description = "Type of EBS volume. Can be standard, gp2, gp3, io1, io2, sc1 or st1"
   type        = string
   default     = "gp3"
-  
+
   validation {
     condition     = contains(["standard", "gp2", "gp3", "io1", "io2", "sc1", "st1"], var.type)
     error_message = "Volume type must be one of: standard, gp2, gp3, io1, io2, sc1, st1"

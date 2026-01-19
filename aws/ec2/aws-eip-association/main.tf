@@ -1,4 +1,5 @@
 resource "aws_eip_association" "this" {
+
   region               = var.region
   allocation_id        = var.allocation_id
   allow_reassociation  = var.allow_reassociation
@@ -6,4 +7,5 @@ resource "aws_eip_association" "this" {
   network_interface_id = var.network_interface_id
   private_ip_address   = var.private_ip_address
   public_ip            = var.public_ip
+
 }

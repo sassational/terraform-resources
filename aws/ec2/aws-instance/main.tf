@@ -1,7 +1,8 @@
 resource "aws_instance" "this" {
+
   ami           = var.ami
   instance_type = var.instance_type
-  
+
   availability_zone           = var.availability_zone
   subnet_id                   = var.subnet_id
   vpc_security_group_ids      = var.vpc_security_group_ids
@@ -26,7 +27,7 @@ resource "aws_instance" "this" {
   instance_initiated_shutdown_behavior = var.instance_initiated_shutdown_behavior
   monitoring                           = var.monitoring
   hibernation                          = var.hibernation
-  
+
   ebs_optimized = var.ebs_optimized
 
   tenancy                    = var.tenancy
@@ -111,7 +112,7 @@ resource "aws_instance" "this" {
     for_each = var.capacity_reservation_specification != null ? [var.capacity_reservation_specification] : []
     content {
       capacity_reservation_preference = capacity_reservation_specification.value.capacity_reservation_preference
-      
+
       dynamic "capacity_reservation_target" {
         for_each = capacity_reservation_specification.value.capacity_reservation_target != null ? [capacity_reservation_specification.value.capacity_reservation_target] : []
         content {
@@ -165,7 +166,7 @@ resource "aws_instance" "this" {
     for_each = var.instance_market_options != null ? [var.instance_market_options] : []
     content {
       market_type = instance_market_options.value.market_type
-      
+
       dynamic "spot_options" {
         for_each = instance_market_options.value.spot_options != null ? [instance_market_options.value.spot_options] : []
         content {
@@ -177,4 +178,5 @@ resource "aws_instance" "this" {
       }
     }
   }
+
 }

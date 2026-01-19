@@ -6,5 +6,5 @@ resource "aws_volume_attachment" "this" {
   force_detach                   = var.force_detach
   skip_destroy                   = var.skip_destroy
   stop_instance_before_detaching = var.stop_instance_before_detaching
-  
+
 }

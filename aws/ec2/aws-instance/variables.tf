@@ -235,8 +235,8 @@ variable "ephemeral_block_device" {
 variable "network_interface" {
   description = "Customize network interfaces to be attached at instance boot time."
   type = list(object({
-    device_index         = number
-    network_interface_id = string
+    device_index          = number
+    network_interface_id  = string
     delete_on_termination = optional(bool)
     network_card_index    = optional(number)
   }))

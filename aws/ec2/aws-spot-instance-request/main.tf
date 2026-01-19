@@ -1,14 +1,14 @@
 resource "aws_spot_instance_request" "this" {
 
-  spot_price                      = var.spot_price
-  wait_for_fulfillment            = var.wait_for_fulfillment
-  spot_type                       = var.spot_type
-  launch_group                    = var.launch_group
-  instance_interruption_behavior  = var.instance_interruption_behavior
-  valid_until                     = var.valid_until
-  valid_from                      = var.valid_from
-  tags                            = var.tags
-  
+  spot_price                     = var.spot_price
+  wait_for_fulfillment           = var.wait_for_fulfillment
+  spot_type                      = var.spot_type
+  launch_group                   = var.launch_group
+  instance_interruption_behavior = var.instance_interruption_behavior
+  valid_until                    = var.valid_until
+  valid_from                     = var.valid_from
+  tags                           = var.tags
+
   ami                                  = var.ami
   instance_type                        = var.instance_type
   key_name                             = var.key_name
@@ -113,7 +113,7 @@ resource "aws_spot_instance_request" "this" {
     for_each = var.capacity_reservation_specification != null ? [var.capacity_reservation_specification] : []
     content {
       capacity_reservation_preference = lookup(capacity_reservation_specification.value, "capacity_reservation_preference", null)
-      
+
       dynamic "capacity_reservation_target" {
         for_each = lookup(capacity_reservation_specification.value, "capacity_reservation_target", null) != null ? [capacity_reservation_specification.value.capacity_reservation_target] : []
         content {
@@ -133,4 +133,5 @@ resource "aws_spot_instance_request" "this" {
   }
 
   volume_tags = var.volume_tags
+
 }

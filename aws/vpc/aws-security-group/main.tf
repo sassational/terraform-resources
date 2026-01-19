@@ -1,4 +1,5 @@
 resource "aws_security_group" "this" {
+  
   name                   = var.name
   name_prefix            = var.name_prefix
   description            = var.description
@@ -35,4 +36,5 @@ resource "aws_security_group" "this" {
       description      = egress.value.description
     }
   }
+  
 }
