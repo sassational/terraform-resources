@@ -8,7 +8,6 @@ output "tags_all" {
   value       = aws_spot_instance_request.this.tags_all
 }
 
-# Informational outputs - DO NOT use for resource dependencies
 output "spot_instance_id" {
   description = "The Instance ID fulfilling the Spot Instance request (informational only)"
   value       = aws_spot_instance_request.this.spot_instance_id
