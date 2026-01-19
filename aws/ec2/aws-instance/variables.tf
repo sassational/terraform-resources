@@ -1,7 +1,6 @@
 variable "ami" {
   description = "AMI to use for the instance. Required unless launch_template is specified."
   type        = string
-  default     = null
 }
 
 variable "instance_type" {
@@ -13,79 +12,66 @@ variable "instance_type" {
 variable "availability_zone" {
   description = "AZ to start the instance in."
   type        = string
-  default     = null
 }
 
 variable "subnet_id" {
   description = "VPC Subnet ID to launch in."
   type        = string
-  default     = null
 }
 
 variable "vpc_security_group_ids" {
   description = "List of security group IDs to associate with."
   type        = list(string)
-  default     = null
 }
 
 variable "security_groups" {
   description = "List of security group names to associate with."
   type        = list(string)
-  default     = null
 }
 
 variable "key_name" {
   description = "Key name of the Key Pair to use for the instance."
   type        = string
-  default     = null
 }
 
 variable "associate_public_ip_address" {
   description = "Whether to associate a public IP address with an instance in a VPC."
   type        = bool
-  default     = null
 }
 
 variable "private_ip" {
   description = "Private IP address to associate with the instance in a VPC."
   type        = string
-  default     = null
 }
 
 variable "secondary_private_ips" {
   description = "List of secondary private IPv4 addresses to assign to the instance's primary network interface."
   type        = list(string)
-  default     = null
 }
 
 variable "ipv6_address_count" {
   description = "Number of IPv6 addresses to associate with the primary network interface."
   type        = number
-  default     = null
 }
 
 variable "ipv6_addresses" {
   description = "Specify one or more IPv6 addresses from the range of the subnet to associate with the primary network interface."
   type        = list(string)
-  default     = null
 }
 
 variable "enable_primary_ipv6" {
   description = "Whether to assign a primary IPv6 Global Unicast Address (GUA) to the instance."
   type        = bool
-  default     = null
 }
 
 variable "user_data" {
   description = "User data to provide when launching the instance."
   type        = string
-  default     = null
 }
 
 variable "user_data_base64" {
   description = "Can be used instead of user_data to pass base64-encoded binary data directly."
   type        = string
-  default     = null
 }
 
 variable "user_data_replace_on_change" {
@@ -97,43 +83,36 @@ variable "user_data_replace_on_change" {
 variable "iam_instance_profile" {
   description = "IAM Instance Profile to launch the instance with."
   type        = string
-  default     = null
 }
 
 variable "disable_api_stop" {
   description = "If true, enables EC2 Instance Stop Protection."
   type        = bool
-  default     = null
 }
 
 variable "disable_api_termination" {
   description = "If true, enables EC2 Instance Termination Protection."
   type        = bool
-  default     = null
 }
 
 variable "ebs_optimized" {
   description = "If true, the launched EC2 instance will be EBS-optimized."
   type        = bool
-  default     = null
 }
 
 variable "get_password_data" {
   description = "If true, wait for password data to become available and retrieve it."
   type        = bool
-  default     = null
 }
 
 variable "hibernation" {
   description = "If true, the launched EC2 instance will support hibernation."
   type        = bool
-  default     = null
 }
 
 variable "monitoring" {
   description = "If true, the launched EC2 instance will have detailed monitoring enabled."
   type        = bool
-  default     = null
 }
 
 variable "source_dest_check" {
@@ -145,37 +124,31 @@ variable "source_dest_check" {
 variable "tenancy" {
   description = "Tenancy of the instance (default, dedicated, or host)."
   type        = string
-  default     = null
 }
 
 variable "host_id" {
   description = "ID of a dedicated host that the instance will be assigned to."
   type        = string
-  default     = null
 }
 
 variable "host_resource_group_arn" {
   description = "ARN of the host resource group in which to launch the instances."
   type        = string
-  default     = null
 }
 
 variable "placement_group" {
   description = "Placement Group to start the instance in."
   type        = string
-  default     = null
 }
 
 variable "placement_partition_number" {
   description = "Number of the partition the instance is in."
   type        = number
-  default     = null
 }
 
 variable "instance_initiated_shutdown_behavior" {
   description = "Shutdown behavior for the instance (stop or terminate)."
   type        = string
-  default     = null
 }
 
 variable "tags" {
@@ -252,7 +225,6 @@ variable "metadata_options" {
     http_tokens                 = optional(string)
     instance_metadata_tags      = optional(string)
   })
-  default = null
 }
 
 variable "launch_template" {
@@ -262,7 +234,6 @@ variable "launch_template" {
     name    = optional(string)
     version = optional(string)
   })
-  default = null
 }
 
 variable "capacity_reservation_specification" {
@@ -274,7 +245,6 @@ variable "capacity_reservation_specification" {
       capacity_reservation_resource_group_arn = optional(string)
     }))
   })
-  default = null
 }
 
 variable "cpu_options" {
@@ -284,7 +254,6 @@ variable "cpu_options" {
     core_count       = optional(number)
     threads_per_core = optional(number)
   })
-  default = null
 }
 
 variable "credit_specification" {
@@ -292,7 +261,6 @@ variable "credit_specification" {
   type = object({
     cpu_credits = optional(string)
   })
-  default = null
 }
 
 variable "enclave_options" {
@@ -300,7 +268,6 @@ variable "enclave_options" {
   type = object({
     enabled = optional(bool)
   })
-  default = null
 }
 
 variable "maintenance_options" {
@@ -308,7 +275,6 @@ variable "maintenance_options" {
   type = object({
     auto_recovery = optional(string)
   })
-  default = null
 }
 
 variable "private_dns_name_options" {
@@ -318,7 +284,6 @@ variable "private_dns_name_options" {
     enable_resource_name_dns_a_record    = optional(bool)
     hostname_type                        = optional(string)
   })
-  default = null
 }
 
 variable "instance_market_options" {
@@ -332,5 +297,4 @@ variable "instance_market_options" {
       valid_until                    = optional(string)
     }))
   })
-  default = null
 }

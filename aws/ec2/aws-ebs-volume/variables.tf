@@ -1,7 +1,6 @@
 variable "region" {
   description = "AWS region where the EBS volume will be created"
   type        = string
-  default     = null
 }
 
 variable "availability_zone" {
@@ -29,13 +28,11 @@ variable "type" {
 variable "iops" {
   description = "Amount of IOPS to provision for the disk. Only valid for type of io1, io2 or gp3"
   type        = number
-  default     = null
 }
 
 variable "throughput" {
   description = "Throughput that the volume supports, in MiB/s. Only valid for type of gp3"
   type        = number
-  default     = null
 }
 
 variable "encrypted" {
@@ -47,19 +44,16 @@ variable "encrypted" {
 variable "kms_key_id" {
   description = "ARN for the KMS encryption key. When specifying kms_key_id, encrypted needs to be set to true"
   type        = string
-  default     = null
 }
 
 variable "snapshot_id" {
   description = "A snapshot to base the EBS volume off of"
   type        = string
-  default     = null
 }
 
 variable "volume_initialization_rate" {
   description = "EBS provisioned rate for volume initialization, in MiB/s. Can only be set if snapshot_id is specified"
   type        = number
-  default     = null
 }
 
 variable "multi_attach_enabled" {
@@ -71,7 +65,6 @@ variable "multi_attach_enabled" {
 variable "outpost_arn" {
   description = "Amazon Resource Name (ARN) of the Outpost"
   type        = string
-  default     = null
 }
 
 variable "final_snapshot" {

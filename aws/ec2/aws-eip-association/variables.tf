@@ -1,7 +1,6 @@
 variable "region" {
   description = "Region where this resource will be managed. Defaults to the Region set in the provider configuration."
   type        = string
-  default     = null
 }
 
 variable "allocation_id" {
@@ -18,23 +17,19 @@ variable "allow_reassociation" {
 variable "instance_id" {
   description = "(Forces new resource) ID of the instance. The instance must have exactly one attached network interface. You can specify either the instance ID or the network interface ID, but not both."
   type        = string
-  default     = null
 }
 
 variable "network_interface_id" {
   description = "(Forces new resource) ID of the network interface. If the instance has more than one network interface, you must specify a network interface ID. You can specify either the instance ID or the network interface ID, but not both."
   type        = string
-  default     = null
 }
 
 variable "private_ip_address" {
   description = "(Forces new resource) Primary or secondary private IP address to associate with the Elastic IP address. If no private IP address is specified, the Elastic IP address is associated with the primary private IP address."
   type        = string
-  default     = null
 }
 
 variable "public_ip" {
   description = "(Forces new resource, DEPRECATED since EC2-Classic networking has retired) Address of the associated Elastic IP."
   type        = string
-  default     = null
 }

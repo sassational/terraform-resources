@@ -1,19 +1,16 @@
 variable "region" {
   description = "Region where this resource will be managed. Defaults to the Region set in the provider configuration."
   type        = string
-  default     = null
 }
 
 variable "key_name" {
   description = "The name for the key pair. Conflicts with key_name_prefix."
   type        = string
-  default     = null
 }
 
 variable "key_name_prefix" {
   description = "Creates a unique name beginning with the specified prefix. Conflicts with key_name."
   type        = string
-  default     = null
 }
 
 variable "public_key" {

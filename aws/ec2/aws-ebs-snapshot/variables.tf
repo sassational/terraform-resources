@@ -1,7 +1,6 @@
 variable "region" {
   description = "Region where this resource will be managed. Defaults to the Region set in the provider configuration"
   type        = string
-  default     = null
 }
 
 variable "volume_id" {
@@ -12,13 +11,11 @@ variable "volume_id" {
 variable "description" {
   description = "A description of what the snapshot is"
   type        = string
-  default     = null
 }
 
 variable "outpost_arn" {
   description = "The Amazon Resource Name (ARN) of the Outpost on which to create a local snapshot"
   type        = string
-  default     = null
 }
 
 variable "storage_tier" {
@@ -35,13 +32,11 @@ variable "storage_tier" {
 variable "permanent_restore" {
   description = "Indicates whether to permanently restore an archived snapshot"
   type        = bool
-  default     = null
 }
 
 variable "temporary_restore_days" {
   description = "Specifies the number of days for which to temporarily restore an archived snapshot. Required for temporary restores only"
   type        = number
-  default     = null
 }
 
 variable "tags" {
