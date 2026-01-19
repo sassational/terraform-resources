@@ -27,8 +27,6 @@ resource "aws_spot_instance_request" "this" {
   placement_group                      = var.placement_group
   tenancy                              = var.tenancy
   host_id                              = var.host_id
-  cpu_core_count                       = var.cpu_core_count
-  cpu_threads_per_core                 = var.cpu_threads_per_core
   hibernation                          = var.hibernation
 
   dynamic "root_block_device" {
