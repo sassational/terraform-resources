@@ -42,3 +42,8 @@ output "private_dns" {
   description = "The private DNS name assigned to the instance (informational only)"
   value       = aws_spot_instance_request.this.private_dns
 }
+
+output "root_block_device" {
+  description = "Root block device information, including volume_id, device_name, and tags_all."
+  value       = aws_spot_instance_request.this.root_block_device
+}
