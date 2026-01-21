@@ -1,23 +1,25 @@
 variable "region" {
   description = "(Optional) Region where this resource will be managed. Defaults to the provider's region."
   type        = string
+  default     = null
 }
 
 variable "name" {
   description = "(Optional) Name of the security group. Conflicts with name_prefix."
   type        = string
+  default     = null
 }
 
 variable "name_prefix" {
   description = "(Optional) Creates a unique name beginning with the specified prefix. Conflicts with name."
   type        = string
+  default     = null
 }
 
 variable "description" {
   description = "(Optional) Security group description. Cannot be empty string."
   type        = string
   default     = "Managed by Terraform"
-
   validation {
     condition     = length(var.description) > 0
     error_message = "The description cannot be an empty string."
@@ -27,6 +29,7 @@ variable "description" {
 variable "vpc_id" {
   description = "(Optional) VPC ID. Defaults to the region's default VPC."
   type        = string
+  default     = null
 }
 
 variable "revoke_rules_on_delete" {

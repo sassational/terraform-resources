@@ -1,6 +1,7 @@
 variable "region" {
   description = "Region where this resource will be managed. Defaults to the Region set in the provider configuration"
   type        = string
+  default     = null
 }
 
 variable "assign_ipv6_address_on_creation" {
@@ -12,21 +13,25 @@ variable "assign_ipv6_address_on_creation" {
 variable "availability_zone" {
   description = "AZ for the subnet"
   type        = string
+  default     = null
 }
 
 variable "availability_zone_id" {
   description = "AZ ID of the subnet. This argument is not supported in all regions or partitions. If necessary, use availability_zone instead"
   type        = string
+  default     = null
 }
 
 variable "cidr_block" {
   description = "The IPv4 CIDR block for the subnet"
   type        = string
+  default     = null
 }
 
 variable "customer_owned_ipv4_pool" {
   description = "The customer owned IPv4 address pool. Typically used with the map_customer_owned_ip_on_launch argument. The outpost_arn argument must be specified when configured"
   type        = string
+  default     = null
 }
 
 variable "enable_dns64" {
@@ -38,6 +43,7 @@ variable "enable_dns64" {
 variable "enable_lni_at_device_index" {
   description = "Indicates the device position for local network interfaces in this subnet. For example, 1 indicates local network interfaces in this subnet are the secondary network interface (eth1)"
   type        = number
+  default     = null
 }
 
 variable "enable_resource_name_dns_aaaa_record_on_launch" {
@@ -55,6 +61,7 @@ variable "enable_resource_name_dns_a_record_on_launch" {
 variable "ipv6_cidr_block" {
   description = "The IPv6 network range for the subnet, in CIDR notation. The subnet size must use a /64 prefix length"
   type        = string
+  default     = null
 }
 
 variable "ipv6_native" {
@@ -78,12 +85,13 @@ variable "map_public_ip_on_launch" {
 variable "outpost_arn" {
   description = "The Amazon Resource Name (ARN) of the Outpost"
   type        = string
+  default     = null
 }
 
 variable "private_dns_hostname_type_on_launch" {
   description = "The type of hostnames to assign to instances in the subnet at launch. Valid values: ip-name, resource-name"
   type        = string
-
+  default     = null
   validation {
     condition     = var.private_dns_hostname_type_on_launch == null || contains(["ip-name", "resource-name"], var.private_dns_hostname_type_on_launch)
     error_message = "The private_dns_hostname_type_on_launch must be either 'ip-name' or 'resource-name'."
