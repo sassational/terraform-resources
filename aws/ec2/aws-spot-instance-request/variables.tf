@@ -1,6 +1,7 @@
 variable "spot_price" {
   description = "The maximum price to request on the spot market. Defaults to on-demand price if not specified"
   type        = string
+  default     = null
 }
 
 variable "wait_for_fulfillment" {
@@ -13,7 +14,6 @@ variable "spot_type" {
   description = "Type of spot request. Valid values: 'one-time' or 'persistent'"
   type        = string
   default     = "persistent"
-
   validation {
     condition     = contains(["one-time", "persistent"], var.spot_type)
     error_message = "spot_type must be either 'one-time' or 'persistent'."
@@ -23,13 +23,13 @@ variable "spot_type" {
 variable "launch_group" {
   description = "A launch group is a group of spot instances that launch together and terminate together"
   type        = string
+  default     = null
 }
 
 variable "instance_interruption_behavior" {
   description = "Indicates Spot instance behavior when it is interrupted. Valid values: 'terminate', 'stop', or 'hibernate'"
   type        = string
   default     = "terminate"
-
   validation {
     condition     = contains(["terminate", "stop", "hibernate"], var.instance_interruption_behavior)
     error_message = "instance_interruption_behavior must be 'terminate', 'stop', or 'hibernate'."
@@ -39,11 +39,13 @@ variable "instance_interruption_behavior" {
 variable "valid_until" {
   description = "The end date and time of the request, in UTC RFC3339 format (YYYY-MM-DDTHH:MM:SSZ). Default is 7 days from current date"
   type        = string
+  default     = null
 }
 
 variable "valid_from" {
   description = "The start date and time of the request, in UTC RFC3339 format (YYYY-MM-DDTHH:MM:SSZ). Default is immediate"
   type        = string
+  default     = null
 }
 
 variable "tags" {
@@ -65,11 +67,13 @@ variable "instance_type" {
 variable "key_name" {
   description = "The key name to use for the instance"
   type        = string
+  default     = null
 }
 
 variable "subnet_id" {
   description = "The VPC Subnet ID to launch in"
   type        = string
+  default     = null
 }
 
 variable "vpc_security_group_ids" {
@@ -87,21 +91,25 @@ variable "associate_public_ip_address" {
 variable "availability_zone" {
   description = "The AZ to start the instance in"
   type        = string
+  default     = null
 }
 
 variable "user_data" {
   description = "The user data to provide when launching the instance"
   type        = string
+  default     = null
 }
 
 variable "user_data_base64" {
   description = "Can be used instead of user_data to pass base64-encoded binary data directly"
   type        = string
+  default     = null
 }
 
 variable "iam_instance_profile" {
   description = "The IAM Instance Profile to launch the instance with"
   type        = string
+  default     = null
 }
 
 variable "monitoring" {
@@ -159,7 +167,6 @@ variable "ephemeral_block_device" {
 
 variable "network_interface" {
   description = "Customize network interfaces to be attached at instance boot time"
-
   type = list(object({
     device_index          = number
     network_interface_id  = string
@@ -189,6 +196,7 @@ variable "instance_initiated_shutdown_behavior" {
 variable "placement_group" {
   description = "The Placement Group to start the instance in"
   type        = string
+  default     = null
 }
 
 variable "tenancy" {
@@ -200,16 +208,19 @@ variable "tenancy" {
 variable "host_id" {
   description = "The Id of a dedicated host that the instance will be assigned to"
   type        = string
+  default     = null
 }
 
 variable "cpu_core_count" {
   description = "Sets the number of CPU cores for an instance"
   type        = number
+  default     = null
 }
 
 variable "cpu_threads_per_core" {
   description = "Sets the number of CPU threads per core for an instance (has no effect unless cpu_core_count is also set)"
   type        = number
+  default     = null
 }
 
 variable "hibernation" {
@@ -235,6 +246,7 @@ variable "credit_specification" {
   type = object({
     cpu_credits = string
   })
+  default = null
 }
 
 variable "metadata_options" {
@@ -245,6 +257,7 @@ variable "metadata_options" {
     http_put_response_hop_limit = optional(number)
     instance_metadata_tags      = optional(string)
   })
+  default = null
 }
 
 variable "enclave_options" {
@@ -252,6 +265,7 @@ variable "enclave_options" {
   type = object({
     enabled = bool
   })
+  default = null
 }
 
 variable "private_dns_name_options" {
@@ -261,6 +275,7 @@ variable "private_dns_name_options" {
     enable_resource_name_dns_a_record    = optional(bool)
     hostname_type                        = optional(string)
   })
+  default = null
 }
 
 variable "capacity_reservation_specification" {
@@ -271,6 +286,7 @@ variable "capacity_reservation_specification" {
       capacity_reservation_id = string
     }))
   })
+  default = null
 }
 
 variable "launch_template" {
@@ -280,4 +296,5 @@ variable "launch_template" {
     name    = optional(string)
     version = optional(string)
   })
+  default = null
 }
